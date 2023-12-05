@@ -1,0 +1,84 @@
+getListRole:
+  handler: admin/roles/index.getRoles
+  events:
+    - http:
+        path: /v1/core/admin/list-role
+        method: GET
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
+
+createRoleByAdmin:
+  handler: admin/roles/index.createRole
+  events:
+    - http:
+        path: /v1/core/admin/create-role
+        method: POST
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
+
+updateRoleByAdmin:
+  handler: admin/roles/index.updateRole
+  events:
+    - http:
+        path: /v1/core/admin/update-role
+        method: POST
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
+
+getNamesRoles:
+  handler: admin/roles/index.getNamesRoles
+  events:
+    - http:
+        path: /v1/core/admin/get-names-roles
+        method: GET
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
+
+deleteRole:
+  handler: admin/roles/index.deleteRole
+  events:
+    - http:
+        path: /v1/core/admin/delete-role
+        method: POST
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key

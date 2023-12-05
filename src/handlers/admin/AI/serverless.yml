@@ -1,0 +1,356 @@
+getApiKeys:
+  handler: admin/AI/index.getApiKeys
+  events:
+    - http:
+        path: /v1/core/admin/ai/get-api-keys
+        method: GET
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
+
+createApiKey:
+  handler: admin/AI/index.createApiKey
+  events:
+    - http:
+        path: /v1/core/admin/ai/create-api-key
+        method: POST
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
+
+updateApiKey:
+  handler: admin/AI/index.updateApiKey
+  events:
+    - http:
+        path: /v1/core/admin/ai/update-api-key
+        method: POST
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
+
+deleteApiKey:
+  handler: admin/AI/index.deleteApiKey
+  events:
+    - http:
+        path: /v1/core/admin/ai/delete-api-key
+        method: POST
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
+
+getPromptParams:
+  handler: admin/AI/index.getPromptParams
+  events:
+    - http:
+        path: /v1/core/admin/ai/get-prompt-params
+        method: GET
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
+
+createPromptParam:
+  handler: admin/AI/index.createPromptParam
+  events:
+    - http:
+        path: /v1/core/admin/ai/create-prompt-param
+        method: POST
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
+
+updatePromptParam:
+  handler: admin/AI/index.updatePromptParam
+  events:
+    - http:
+        path: /v1/core/admin/ai/update-prompt-param
+        method: POST
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
+
+deletePromptParam:
+  handler: admin/AI/index.deletePromptParam
+  events:
+    - http:
+        path: /v1/core/admin/ai/delete-prompt-param
+        method: POST
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
+
+getPrompts:
+  handler: admin/AI/index.getPrompts
+  events:
+    - http:
+        path: /v1/core/admin/ai/get-prompts
+        method: GET
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
+
+createPrompt:
+  handler: admin/AI/index.createPrompt
+  events:
+    - http:
+        path: /v1/core/admin/ai/create-prompt
+        method: POST
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
+
+updatePrompt:
+  handler: admin/AI/index.updatePrompt
+  events:
+    - http:
+        path: /v1/core/admin/ai/update-prompt
+        method: POST
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
+
+deletePrompt:
+  handler: admin/AI/index.deletePrompt
+  events:
+    - http:
+        path: /v1/core/admin/ai/delete-prompt
+        method: POST
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
+
+getGenerationTemplates:
+  handler: admin/AI/index.getGenerationTemplates
+  events:
+    - http:
+        path: /v1/core/admin/ai/get-generation-templates
+        method: GET
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
+
+createGenerationTemplate:
+  handler: admin/AI/index.createGenerationTemplate
+  events:
+    - http:
+        path: /v1/core/admin/ai/create-generation-template
+        method: POST
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
+
+generateGenerationTemplate:
+  handler: admin/AI/index.generateGenerationTemplate
+  events:
+    - http:
+        path: /v1/core/admin/ai/generate-generation-template
+        method: POST
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
+
+updateGenerationTemplate:
+  handler: admin/AI/index.updateGenerationTemplate
+  events:
+    - http:
+        path: /v1/core/admin/ai/update-generation-template
+        method: POST
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
+
+deleteGenerationTemplate:
+  handler: admin/AI/index.deleteGenerationTemplate
+  events:
+    - http:
+        path: /v1/core/admin/ai/delete-generation-template
+        method: POST
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
+
+getResults:
+  handler: admin/AI/index.getResults
+  events:
+    - http:
+        path: /v1/core/admin/ai/get-results
+        method: GET
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
+
+createResult:
+  handler: admin/AI/index.createResult
+  events:
+    - http:
+        path: /v1/core/admin/ai/create-result
+        method: POST
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
+
+updateResult:
+  handler: admin/AI/index.updateResult
+  events:
+    - http:
+        path: /v1/core/admin/ai/update-result
+        method: POST
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
+
+deleteResult:
+  handler: admin/AI/index.deleteResult
+  events:
+    - http:
+        path: /v1/core/admin/ai/delete-result
+        method: POST
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key

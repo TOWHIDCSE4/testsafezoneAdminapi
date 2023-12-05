@@ -1,0 +1,152 @@
+updateSubscriptionStatus:
+  handler: admin/subscriptions/index.updateSubscriptionStatus
+  events:
+    - http:
+        path: /v1/core/admin/update-subscription-status
+        method: POST
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
+
+getSubscriptionPlans:
+  handler: admin/subscriptions/index.getSubscriptionPlans
+  events:
+    - http:
+        path: /v1/core/admin/get-subscription-plans
+        method: GET
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
+
+createPlan:
+  handler: admin/subscriptions/index.createPlan
+  events:
+    - http:
+        path: /v1/core/admin/create-plan
+        method: POST
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
+
+updatePlan:
+  handler: admin/subscriptions/index.updatePlan
+  events:
+    - http:
+        path: /v1/core/admin/update-plan
+        method: POST
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
+
+getNamesPlans:
+  handler: admin/subscriptions/index.getNamesPlans
+  events:
+    - http:
+        path: /v1/core/admin/get-names-plans
+        method: GET
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
+
+deletePlan:
+  handler: admin/subscriptions/index.deletePlan
+  events:
+    - http:
+        path: /v1/core/admin/delete-plan
+        method: POST
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
+
+getSubscriptions:
+  handler: admin/subscriptions/index.getSubscriptions
+  events:
+    - http:
+        path: /v1/core/admin/get-subscriptions
+        method: GET
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
+
+createSubscription:
+  handler: admin/subscriptions/index.createSubscription
+  events:
+    - http:
+        path: /v1/core/admin/create-subscription
+        method: POST
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
+
+updateSubscription:
+  handler: admin/subscriptions/index.updateSubscription
+  events:
+    - http:
+        path: /v1/core/admin/update-subscription
+        method: POST
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key

@@ -1,0 +1,16 @@
+adminLogin:
+  handler: admin/auth/index.login
+  events:
+    - http:
+        path: /v1/core/admin/login
+        method: POST
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key

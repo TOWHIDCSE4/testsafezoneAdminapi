@@ -1,0 +1,67 @@
+getListEmployee:
+  handler: admin/employees/index.getEmployees
+  events:
+    - http:
+        path: /v1/core/admin/list-employee
+        method: GET
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
+
+createEmployee:
+  handler: admin/employees/index.createEmployee
+  events:
+    - http:
+        path: /v1/core/admin/create-employee
+        method: POST
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
+
+updateEmployee:
+  handler: admin/employees/index.updateEmployee
+  events:
+    - http:
+        path: /v1/core/admin/update-employee
+        method: POST
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
+
+deleteEmployee:
+  handler: admin/employees/index.deleteEmployee
+  events:
+    - http:
+        path: /v1/core/admin/delete-employee
+        method: POST
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key

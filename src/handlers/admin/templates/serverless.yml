@@ -1,0 +1,84 @@
+getListTemplate:
+  handler: admin/templates/index.getTemplates
+  events:
+    - http:
+        path: /v1/core/admin/list-template
+        method: GET
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
+
+createTemplate:
+  handler: admin/templates/index.createTemplate
+  events:
+    - http:
+        path: /v1/core/admin/create-template
+        method: POST
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
+
+updateTemplate:
+  handler: admin/templates/index.updateTemplate
+  events:
+    - http:
+        path: /v1/core/admin/update-template
+        method: POST
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
+
+getTemplateCodes:
+  handler: admin/templates/index.getTemplateCodes
+  events:
+    - http:
+        path: /v1/core/admin/get-template-codes
+        method: GET
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
+
+removeTemplate:
+  handler: admin/templates/index.removeTemplate
+  events:
+    - http:
+        path: /v1/core/admin/remove-template
+        method: POST
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key

@@ -1,0 +1,101 @@
+getListUser:
+  handler: admin/users/index.getUsers
+  events:
+    - http:
+        path: /v1/core/admin/list-user
+        method: GET
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
+
+createUserByAdmin:
+  handler: admin/users/index.createUserByAdmin
+  events:
+    - http:
+        path: /v1/core/admin/create-user-by-admin
+        method: POST
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
+
+updateUserByAdmin:
+  handler: admin/users/index.updateUserByAdmin
+  events:
+    - http:
+        path: /v1/core/admin/update-user-by-admin
+        method: POST
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
+
+deleteUserByAdmin:
+  handler: admin/users/index.deleteUserByAdmin
+  events:
+    - http:
+        path: /v1/core/admin/delete-user-by-admin
+        method: POST
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
+
+unregisteredUsersList:
+  handler: admin/users/index.unregisteredUsersList
+  events:
+    - http:
+        path: /v1/core/admin/unregistered-users-list
+        method: GET
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
+
+userActivityUpdate:
+  handler: admin/users/index.userActivityUpdate
+  events:
+    - http:
+        path: /v1/core/admin/user-activity-update
+        method: POST
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
