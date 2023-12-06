@@ -1,0 +1,67 @@
+getListCategoryDomain:
+  handler: admin/categoryDomain/index.getCategoryDomain
+  events:
+    - http:
+        path: /v1/core/admin/list-category-domain
+        method: GET
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
+
+createCategoryDomain:
+  handler: admin/categoryDomain/index.createCategoryDomain
+  events:
+    - http:
+        path: /v1/core/admin/create-category-domain
+        method: POST
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
+
+updateCategoryDomain:
+  handler: admin/categoryDomain/index.updateCategoryDomain
+  events:
+    - http:
+        path: /v1/core/admin/update-category-domain
+        method: POST
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
+
+deleteCategoryDomain:
+  handler: admin/categoryDomain/index.deleteCategoryDomain
+  events:
+    - http:
+        path: /v1/core/admin/delete-category-domain
+        method: POST
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key

@@ -51,20 +51,22 @@ provider:
     AWS_COGNITO_REGION: ap-southeast-1
     ZVELO_CLOUD_USERNAME: ${param:ZVELO_CLOUD_USERNAME, ''}
     ZVELO_CLOUD_PASSWORD: ${param:ZVELO_CLOUD_PASSWORD, ''}
-    MONGODB_URI: ${param:MONGODB_URI, 'mongodb://localhost:27017/'}
+    MONGODB_URI: ${param:MONGODB_URI, 'mongodb+srv://safezone-php:2023safezonephp@safezoneapi-dev.qxco0.mongodb.net/'}
     AWS_GATEWAY_API_URL: !Sub 'https://${ApiGatewayRestApi}.execute-api.${aws:region}.amazonaws.com/${sls:stage}'
-    APPOTA_PARTNER_CODE: ${param:APPOTA_PARTNER_CODE, ''}
-    APPOTA_API_KEY: ${param:APPOTA_API_KEY, ''}
-    APPOTA_SECRET_KEY: ${param:APPOTA_SECRET_KEY, ''}
+    APPOTA_PARTNER_CODE: ${param:APPOTA_PARTNER_CODE, 'APPOTAPAY'}
+    APPOTA_API_KEY: ${param:APPOTA_API_KEY, 'FJcmF8uj2ISveL5FvvNk4pnp8xrhINz8'}
+    APPOTA_SECRET_KEY: ${param:APPOTA_SECRET_KEY, 'XAonJgy14YhtePEITXhyBS2unjfJLAV3'}
     APPOTA_ENDPOINT: ${param:APPOTA_ENDPOINT, 'https://payment.dev.appotapay.com/api'}
     SAFE_ZONE_PORTAL_URL: ${param:SAFE_ZONE_PORTAL_URL, ''}
     S3_PUBLIC_BUCKET_NAME: !Ref AttachmentsBucket
-    AWS_COGNITO_USER_POOL_ID: ${param:AWS_COGNITO_USER_POOL_ID, ''}
-    AWS_COGNITO_APP_CLIENT_ID: ${param:AWS_COGNITO_APP_CLIENT_ID, ''}
-    S3_PUBLIC_BUCKET_DOMAIN: ${cf:admin-safe-zone-app-${sls:stage}.AttachmentsBucketSecureURL, ''}
-    S3_ASSETS_BUCKET_DOMAIN: ${cf:admin-safe-zone-app-${sls:stage}.AssetsBucketSecureURL, ''}
+    SERVER_TYPE: ${param:SAFE_ZONE_SERVER_TYPE, 'local'}
+    AWS_COGNITO_USER_POOL_ID: ap-southeast-1_qQNaEBiSk
+    AWS_COGNITO_APP_CLIENT_ID: 1eidhbgo28qsa36nlri9pffplc
+    S3_PUBLIC_BUCKET_DOMAIN: xxxxx
+    S3_ASSETS_BUCKET_DOMAIN: xxxxx
     SES_EMAIL: no-reply@safezone.com.vn
     OPEN_AI_URI: ${param:OPEN_AI_URI, 'https://api.openai.com'}
+
 
 plugins:
   - serverless-functions-base-path
@@ -111,5 +113,6 @@ functions:
   - ${file(./src/handlers/admin/roles/serverless.yml)}
   - ${file(./src/handlers/admin/permissions/serverless.yml)}
   - ${file(./src/handlers/admin/employees/serverless.yml)}
+  - ${file(./src/handlers/admin/categoryDomain/serverless.yml)}
   - ${file(./src/handlers/admin/AI/serverless.yml)}
   - ${file(./src/handlers/admin/templates/serverless.yml)}
