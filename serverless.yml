@@ -114,5 +114,6 @@ functions:
   - ${file(./src/handlers/admin/permissions/serverless.yml)}
   - ${file(./src/handlers/admin/employees/serverless.yml)}
   - ${file(./src/handlers/admin/categoryDomain/serverless.yml)}
+  - ${file(./src/handlers/admin/CategoryFindingDomain/serverless.yml)}
   - ${file(./src/handlers/admin/AI/serverless.yml)}
   - ${file(./src/handlers/admin/templates/serverless.yml)}

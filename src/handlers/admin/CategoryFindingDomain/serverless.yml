@@ -1,0 +1,16 @@
+findCategoryDomain:
+  handler: admin/CategoryFindingDomain/index.CategoryFindingDomain
+  events:
+    - http:
+        path: /v1/core/admin/find-category-domain
+        method: POST
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key

@@ -10,7 +10,7 @@ export const createCategoryDomain = validateService(async (event) => {
 
   try {
     const categoryExists = await CategoryDomain.findOne({
-      $or: [{ category_id: category_id }],
+      $or: [{ host: host }],
     });
 
 
