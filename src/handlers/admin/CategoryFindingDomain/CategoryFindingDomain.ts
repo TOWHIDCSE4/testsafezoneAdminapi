@@ -17,7 +17,7 @@ export const CategoryFindingDomain = validateService(async (event) => {
       return error('Không tìm thấy danh mục với máy chủ- ' + host);
     }
 
-    const category_id:number = JSON.parse(categoryDomain.category_id);
+    const category_id:number = categoryDomain.category_id;
 
     const category = await WebCategories.findOne({
       $or: [{ _id: category_id }],

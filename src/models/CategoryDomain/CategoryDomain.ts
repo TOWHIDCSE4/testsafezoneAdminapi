@@ -1,21 +1,22 @@
 import mongoose, { Schema, Document } from 'mongoose';
 
 export interface CategoryDomain extends Document {
-  category_id: string;
+  category_id: number;
   host: string;
 }
 
 const CategoryDomainSchema = new Schema(
   {
     category_id: {
-      type: String,
-      unique: true,
-      index: true,
+      type: Schema.Types.Number,
+      ref: 'WebCategories',
       required: true,
-      trim: true,
+      index: true,
     },
     host: {
       type: String,
+      required: true,
+      index: true,
       trim: true,
     }
   },

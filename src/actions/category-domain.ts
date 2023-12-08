@@ -1,5 +1,6 @@
 import { FilterQuery as FilterQueryMG, PipelineStage } from 'mongoose';
 import { CategoryDomain } from '@/models/CategoryDomain';
+import { WebCategories } from '@/models/WebCategories/WebCategories';
 
 export default class CategoryDomainActions {
   public static buildFilterQuery(_filter: any): FilterQueryMG<CategoryDomain> {
@@ -21,6 +22,15 @@ export default class CategoryDomainActions {
 
     const pipelines = [];
     pipelines.push(matchPipeline);
+
+    pipelines.push({
+      $lookup: {
+        from: WebCategories.collection.collectionName,
+        localField: 'category_id',
+        foreignField: '_id',
+        as: 'category',
+      },
+    });
 
     return await CategoryDomain.aggregate(pipelines).skip(skip).limit(limit).exec();
   }
