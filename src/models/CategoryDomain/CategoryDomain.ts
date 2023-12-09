@@ -10,8 +10,7 @@ const CategoryDomainSchema = new Schema(
     category_id: {
       type: Schema.Types.Number,
       ref: 'WebCategories',
-      required: true,
-      index: true,
+      required: true
     },
     host: {
       type: String,

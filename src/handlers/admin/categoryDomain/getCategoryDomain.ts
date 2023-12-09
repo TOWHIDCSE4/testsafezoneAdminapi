@@ -1,4 +1,4 @@
-import CategoryDomainActions from '@/actions/category-domain';
+import CategoryDomainActions from '@/actions/CategoryDomain';
 import { error, success, init, validateService } from '@/modules/core';
 
 export const getCategoryDomain = validateService(async (event) => {

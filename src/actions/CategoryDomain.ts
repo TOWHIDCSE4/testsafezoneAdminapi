@@ -1,10 +1,29 @@
 import { FilterQuery as FilterQueryMG, PipelineStage } from 'mongoose';
 import { CategoryDomain } from '@/models/CategoryDomain';
+import { escapeRegExp } from 'lodash';
 import { WebCategories } from '@/models/WebCategories/WebCategories';
 
 export default class CategoryDomainActions {
-  public static buildFilterQuery(_filter: any): FilterQueryMG<CategoryDomain> {
+  public static buildFilterQuery(filter: any): FilterQueryMG<CategoryDomain> {
     const conditions: any = {};
+
+    if (filter.search) {
+      const searchRegexStr = escapeRegExp(filter.search);
+      conditions.$or = [
+        {
+          host: {
+            $regex: searchRegexStr,
+            $options: 'i',
+          },
+        },
+        {
+          'category.name': {
+            $regex: searchRegexStr,
+            $options: 'i',
+          },
+        }
+      ];
+    }
 
     return conditions;
   }
@@ -21,7 +40,7 @@ export default class CategoryDomainActions {
     };
 
     const pipelines = [];
-    pipelines.push(matchPipeline);
+
 
     pipelines.push({
       $lookup: {
@@ -32,11 +51,34 @@ export default class CategoryDomainActions {
       },
     });
 
+    pipelines.push(matchPipeline);
+
     return await CategoryDomain.aggregate(pipelines).skip(skip).limit(limit).exec();
   }
 
   public static count(filter): Promise<number> {
     const conditions = CategoryDomainActions.buildFilterQuery(filter);
-    return CategoryDomain.countDocuments(conditions).exec();
+    const countPipeline: PipelineStage = {
+      $match: conditions,
+    };
+    const pipelines = [];
+
+
+    pipelines.push({
+      $lookup: {
+        from: WebCategories.collection.collectionName,
+        localField: 'category_id',
+        foreignField: '_id',
+        as: 'category',
+      },
+    });
+
+    pipelines.push(countPipeline);
+    return CategoryDomain.aggregate(pipelines)
+    .then((result) => result.length);
   }
 }
+
+
+
+
