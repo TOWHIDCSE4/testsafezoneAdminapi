@@ -65,3 +65,20 @@ deleteCategoryDomain:
             - X-Amz-Security-Token
             - X-Amz-User-Agent
             - api_key
+
+bulkInsertCategoryDomain:
+  handler: admin/categoryDomain/index.bulkInsertCategoryDomain
+  events:
+    - http:
+        path: /v1/core/admin/bulk-insert-category-domain
+        method: POST
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
