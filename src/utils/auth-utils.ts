@@ -6,6 +6,7 @@ const expire_time_token = 432000;
 export const createToken = async (user: any, secret: string) => {
   const access_token = await JWT.encode(
     _.pick(user, [
+      '_id',
       'id',
       'phone',
       'email',

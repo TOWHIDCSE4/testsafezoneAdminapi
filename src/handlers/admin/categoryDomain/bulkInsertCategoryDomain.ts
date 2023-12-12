@@ -41,7 +41,7 @@ export const bulkInsertCategoryDomain = validateService(async (event) => {
       await insertIntoDatabase(chunk,category_id);
     }
 
-
+  
     return success({
       code: '10000',
       data: {},

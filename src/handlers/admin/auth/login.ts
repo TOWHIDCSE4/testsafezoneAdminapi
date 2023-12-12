@@ -7,8 +7,8 @@ import { error, success, init, createHandler } from '@/modules/core';
 import { createToken } from '@/utils/auth-utils';
 import _ from 'lodash';
 
-const ADMIN_SECRET: string =
-  'lDDWOyjntY3e7ItmngkkUxzqQBLpNbyPI1BixkVi0vxyu8vf8DeeSef2zh1Kf2jsai';
+const ADMIN_SECRET: string = 'lDDWOyjntY3e7ItmngkkUxzqQBLpNbyPI1BixkVi0vxyu8vf8DeeSef2zh1Kf2jsai';
+const LIBRARY_TEST_SECRET: string = 'uscx3e4s4DRjPWjvaS0bKJZ8TCUEcZORX2veOrBqYAN48GOcwXcIQ1c5ceeLbG20QX';
 
 export const login = createHandler(async (event) => {
   await init();
@@ -40,6 +40,7 @@ export const login = createHandler(async (event) => {
     }
 
     const access_token = await createToken(admin, ADMIN_SECRET);
+    const library_test_token = await createToken(admin, LIBRARY_TEST_SECRET);
 
     const adminHasPermissions = await AdminHasPermissionsModel.find({
       admin_id: admin.id,
@@ -69,6 +70,7 @@ export const login = createHandler(async (event) => {
       data: {
         user: {
           ..._.pick(admin, [
+            '_id',
             'id',
             'phone',
             'email',
@@ -84,6 +86,7 @@ export const login = createHandler(async (event) => {
           permissions: permissionsCode,
         },
         access_token,
+        library_test_token
       },
       message: 'Login success',
     });
