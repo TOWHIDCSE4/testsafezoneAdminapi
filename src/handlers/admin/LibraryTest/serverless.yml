@@ -1,0 +1,208 @@
+getListFolder:
+  handler: admin/LibraryTest/index.getListFolder
+  events:
+    - http:
+        path: /v1/core/admin/list-library-test-folder
+        method: GET
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
+
+getListType:
+  handler: admin/LibraryTest/index.getListType
+  events:
+    - http:
+        path: /v1/core/admin/list-library-test-type
+        method: GET
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
+
+getListLevel:
+  handler: admin/LibraryTest/index.getListLevel
+  events:
+    - http:
+        path: /v1/core/admin/list-library-test-level
+        method: GET
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
+
+getListStatus:
+  handler: admin/LibraryTest/index.getListStatus
+  events:
+    - http:
+        path: /v1/core/admin/list-library-test-status
+        method: GET
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
+
+getListLibraryTest:
+  handler: admin/LibraryTest/index.getListLibraryTest
+  events:
+    - http:
+        path: /v1/core/admin/list-library-test
+        method: GET
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
+
+createFolder:
+  handler: admin/LibraryTest/index.createFolder
+  events:
+    - http:
+        path: /v1/core/admin/create-library-test-folder
+        method: POST
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
+
+createType:
+  handler: admin/LibraryTest/index.createType
+  events:
+    - http:
+        path: /v1/core/admin/create-library-test-type
+        method: POST
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
+
+
+createLevel:
+  handler: admin/LibraryTest/index.createLevel
+  events:
+    - http:
+        path: /v1/core/admin/create-library-test-level
+        method: POST
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
+
+
+createStatus:
+  handler: admin/LibraryTest/index.createStatus
+  events:
+    - http:
+        path: /v1/core/admin/create-library-test-status
+        method: POST
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
+
+
+createLibraryTest:
+  handler: admin/LibraryTest/index.createLibraryTest
+  events:
+    - http:
+        path: /v1/core/admin/create-library-test
+        method: POST
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
+
+
+updateLibraryTest:
+  handler: admin/LibraryTest/index.updateLibraryTest
+  events:
+    - http:
+        path: /v1/core/admin/update-library-test
+        method: POST
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
+
+
+deleteLibraryTest:
+  handler: admin/LibraryTest/index.deleteLibraryTest
+  events:
+    - http:
+        path: /v1/core/admin/delete-library-test
+        method: POST
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
