@@ -51,9 +51,7 @@ const schema = new Schema({
     },
   user: {
     type: Schema.Types.String,
-    ref: 'User',
-    index: true,
-    unique: true,
+    ref: 'User'
   }
 },
 {
