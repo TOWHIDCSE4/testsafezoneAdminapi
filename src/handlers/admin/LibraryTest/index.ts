@@ -10,3 +10,5 @@ export * from './getListLibraryTest';
 export * from './getListStatus';
 export * from './getListType';
 export * from './updateLibraryTest';
+export * from './createTag';
+export * from './getListTag';

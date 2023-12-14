@@ -11,7 +11,8 @@ export const updateLibraryTest = validateService(async (event) => {
     level_id,
     status_id,
     test_time,
-    creator_id
+    creator_id,
+    tags
   } = JSON.parse(event.body);
 
   try {
@@ -26,7 +27,8 @@ export const updateLibraryTest = validateService(async (event) => {
         level: level_id,
         status: status_id,
         test_time:test_time,
-        user: creator_id
+        user: creator_id,
+        tag: tags
       },
       {
         new: true,

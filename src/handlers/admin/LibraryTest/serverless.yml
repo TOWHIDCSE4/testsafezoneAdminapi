@@ -66,6 +66,23 @@ getListStatus:
             - X-Amz-User-Agent
             - api_key
 
+getListTag:
+  handler: admin/LibraryTest/index.getListTag
+  events:
+    - http:
+        path: /v1/core/admin/list-library-test-tag
+        method: GET
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
+
 getListLibraryTest:
   handler: admin/LibraryTest/index.getListLibraryTest
   events:
@@ -141,6 +158,23 @@ createStatus:
   events:
     - http:
         path: /v1/core/admin/create-library-test-status
+        method: POST
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
+
+createTag:
+  handler: admin/LibraryTest/index.createTag
+  events:
+    - http:
+        path: /v1/core/admin/create-library-test-tag
         method: POST
         cors:
           origin: '*'

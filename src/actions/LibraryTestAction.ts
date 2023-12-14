@@ -5,6 +5,7 @@ import { LevelModel } from '@/models/LibraryTestModel';
 import { TypeModel } from '@/models/LibraryTestModel';
 import { StatusModel } from '@/models/LibraryTestModel';
 import { UserModel } from '@/models/User';
+import { TagModel } from '@/models/LibraryTestModel/Tag';
 import _ from 'lodash';
 
 export default class LibraryTestAction {
@@ -102,7 +103,43 @@ export default class LibraryTestAction {
         },
       });
 
-    
+      pipelines.push({
+        $lookup: {
+          from: TagModel.collection.collectionName,
+          localField: 'tag',
+          foreignField: '_id',
+          as: 'tags', 
+        },
+      });
+
+
+      // pipelines.push({
+      //   $addFields: {
+      //     tag: {
+      //       $map: {
+      //         input: '$tags',
+      //         as: 'tagItem',
+      //         in: {
+      //           id: '$$tagItem._id',
+      //           name: '$$tagItem.name',
+      //         },
+      //       },
+      //     },
+      //   },
+      // });
+      
+      // pipelines.push({
+      //   $project: {
+      //     tags: 0, 
+      //   },
+      // });
+
+      pipelines.push({
+        $sort: {
+          ['topic']: 1,
+        },
+      });
+      
 
     return await LibraryTestModel.aggregate(pipelines).skip(skip).limit(limit).exec();
   }

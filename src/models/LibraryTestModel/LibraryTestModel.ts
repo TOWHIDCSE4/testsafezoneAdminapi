@@ -4,6 +4,7 @@ import './Folder';
 import './Level';
 import './Status';
 import './Type';
+import './Tag';
 
 
 export interface LibraryTest {
@@ -12,6 +13,7 @@ export interface LibraryTest {
   type: ObjectId;
   level: ObjectId;
   status: ObjectId;
+  tag: ObjectId[];
   test_time: number;
   user: string;
   canceledAt: Date;
@@ -45,6 +47,12 @@ const schema = new Schema({
     ref: 'Status',
     index: true,
   },
+  tag:[
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Tag'
+    }
+  ],
   test_time: {
     type: Number,
     required: true
