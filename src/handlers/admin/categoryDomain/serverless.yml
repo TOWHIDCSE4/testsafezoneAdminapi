@@ -15,6 +15,23 @@ getListCategoryDomain:
             - X-Amz-User-Agent
             - api_key
 
+deleteAllCategoryDomain:
+  handler: admin/categoryDomain/index.deleteAllCategoryDomain
+  events:
+    - http:
+        path: /v1/core/admin/delete-all-category-domain
+        method: GET
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
+
 createCategoryDomain:
   handler: admin/categoryDomain/index.createCategoryDomain
   events:
