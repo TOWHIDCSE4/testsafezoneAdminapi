@@ -3,6 +3,7 @@ import mongoose, { Schema, Document } from 'mongoose';
 export interface CategoryDomain extends Document {
   category_id: number;
   host: string;
+  domain: string;
 }
 
 const CategoryDomainSchema = new Schema(
@@ -15,6 +16,11 @@ const CategoryDomainSchema = new Schema(
     host: {
       type: String,
       required: true,
+      index: true,
+      trim: true,
+    },
+    domain: {
+      type: String,
       index: true,
       trim: true,
     }
