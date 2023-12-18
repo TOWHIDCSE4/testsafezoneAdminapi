@@ -1,0 +1,68 @@
+getListParentsSetting:
+  handler: admin/ParentsSetting/index.getListParentsSetting
+  events:
+    - http:
+        path: /v1/core/admin/list-parent-setting
+        method: GET
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
+
+createParentsSetting:
+  handler: admin/ParentsSetting/index.createParentsSetting
+  events:
+    - http:
+        path: /v1/core/admin/create-parents-setting
+        method: POST
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
+
+updateParentsSetting:
+  handler: admin/ParentsSetting/index.updateParentsSetting
+  events:
+    - http:
+        path: /v1/core/admin/update-parents-setting
+        method: POST
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
+
+deleteParentsSetting:
+  handler: admin/ParentsSetting/index.deleteParentsSetting
+  events:
+    - http:
+        path: /v1/core/admin/delete-parents-setting
+        method: POST
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
+
