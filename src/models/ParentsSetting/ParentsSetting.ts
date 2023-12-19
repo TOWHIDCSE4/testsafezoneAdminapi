@@ -3,6 +3,7 @@ import mongoose, { Schema, Document } from 'mongoose';
 export interface ParentsSetting extends Document {
   time: string;
   subject: string;
+  quizes: string[]
 }
 
 const ParentsSettingSchema = new Schema(
@@ -14,6 +15,12 @@ const ParentsSettingSchema = new Schema(
     },
     subject: {
       type: String,
+      index: true,
+      trim: true,
+    }
+    ,
+    quizes: {
+      type: [String],
       index: true,
       trim: true,
     }

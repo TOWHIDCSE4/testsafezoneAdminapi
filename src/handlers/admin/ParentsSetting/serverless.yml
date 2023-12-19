@@ -32,11 +32,45 @@ getListSubjects:
             - X-Amz-User-Agent
             - api_key
 
+getListQuizes:
+  handler: admin/ParentsSetting/index.getListQuizes
+  events:
+    - http:
+        path: /v1/core/admin/list-all-quizes
+        method: GET
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
+
 createParentsSetting:
   handler: admin/ParentsSetting/index.createParentsSetting
   events:
     - http:
         path: /v1/core/admin/create-parents-setting
+        method: POST
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
+
+createQuiz:
+  handler: admin/ParentsSetting/index.createQuiz
+  events:
+    - http:
+        path: /v1/core/admin/create-quiz
         method: POST
         cors:
           origin: '*'

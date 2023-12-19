@@ -6,14 +6,16 @@ export const createParentsSetting = validateService(async (event) => {
   await init();
   const {
     time,
-    subject
+    subject,
+    quizes
   } = JSON.parse(event.body);
 
   try {
    
     const parentsSetting = await ParentsSettingModel.create({
       time: time,
-      subject:subject
+      subject:subject,
+      quizes:quizes
     });
 
 
