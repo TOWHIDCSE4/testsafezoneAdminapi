@@ -1,15 +1,16 @@
 import mongoose, { Schema, Document } from 'mongoose';
 
 export interface ParentsSetting extends Document {
-  time: number;
+  time: string;
   subject: string;
 }
 
 const ParentsSettingSchema = new Schema(
   {
     time: {
-      type: Number,
-      required: true
+      type: String,
+      required: true,
+      trim: true,
     },
     subject: {
       type: String,

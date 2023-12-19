@@ -15,6 +15,23 @@ getListParentsSetting:
             - X-Amz-User-Agent
             - api_key
 
+getListSubjects:
+  handler: admin/ParentsSetting/index.getListSubjects
+  events:
+    - http:
+        path: /v1/core/admin/list-all-subjects
+        method: GET
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
+
 createParentsSetting:
   handler: admin/ParentsSetting/index.createParentsSetting
   events:
