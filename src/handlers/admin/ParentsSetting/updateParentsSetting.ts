@@ -6,10 +6,16 @@ export const updateParentsSetting = validateService(async (event) => {
   const {
     parents_setting_id,
     time,
-    subject
+    subject,
+    quizes
   } = JSON.parse(event.body);
 
   try {
+
+    var quiz= [];
+    if(subject === 'Quiz'){
+      quiz=quizes;
+    }
     
     const parentsSetting = await ParentsSettingModel.findOneAndUpdate(
       {
@@ -17,7 +23,8 @@ export const updateParentsSetting = validateService(async (event) => {
       },
       {
         time: time,
-        subject: subject
+        subject: subject,
+        quizes: quiz
       },
       {
         new: true,

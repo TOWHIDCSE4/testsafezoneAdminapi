@@ -11,11 +11,15 @@ export const createParentsSetting = validateService(async (event) => {
   } = JSON.parse(event.body);
 
   try {
+    var quiz= [];
+    if(subject === 'Quiz'){
+      quiz=quizes;
+    }
    
     const parentsSetting = await ParentsSettingModel.create({
       time: time,
       subject:subject,
-      quizes:quizes
+      quizes:quiz
     });
 
 

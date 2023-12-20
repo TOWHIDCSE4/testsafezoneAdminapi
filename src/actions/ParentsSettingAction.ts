@@ -1,5 +1,6 @@
 import { FilterQuery as FilterQueryMG, PipelineStage } from 'mongoose';
 import { escapeRegExp } from 'lodash';
+import { QuizModel } from '@/models/Quiz';
 import { ParentsSetting, ParentsSettingModel } from '@/models/ParentsSetting';
 
 export default class ParentsSettingAction {
@@ -10,7 +11,7 @@ export default class ParentsSettingAction {
       const searchRegexStr = escapeRegExp(filter.search);
       conditions.$or = [
         {
-          host: {
+          subject: {
             $regex: searchRegexStr,
             $options: 'i',
           },
@@ -33,6 +34,15 @@ export default class ParentsSettingAction {
     };
 
     const pipelines = [];
+
+    pipelines.push({
+      $lookup: {
+        from: QuizModel.collection.collectionName,
+        localField: 'quizes',
+        foreignField: '_id',
+        as: 'quiz', 
+      },
+    });
 
 
     // pipelines.push({

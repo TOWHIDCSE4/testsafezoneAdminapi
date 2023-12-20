@@ -1,9 +1,10 @@
-import mongoose, { Schema, Document } from 'mongoose';
+import mongoose, { Schema, Document, ObjectId } from 'mongoose';
+import '../Quiz/Quiz'
 
 export interface ParentsSetting extends Document {
   time: string;
   subject: string;
-  quizes: string[]
+  quizes: ObjectId[];
 }
 
 const ParentsSettingSchema = new Schema(
@@ -19,11 +20,12 @@ const ParentsSettingSchema = new Schema(
       trim: true,
     }
     ,
-    quizes: {
-      type: [String],
-      index: true,
-      trim: true,
-    }
+    quizes: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Quiz'
+      }
+    ],
   },
   {
     timestamps: true,
