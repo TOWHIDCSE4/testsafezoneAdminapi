@@ -13,7 +13,7 @@ const processLine = async (line, category_id) => {
       $or: [{ domain: mainDomain }],
     });
     if(!domainExists){
-      return { host: url, domain: mainDomain, category_id };
+      return { host: url, domain: mainDomain, category_id: category_id};
     }
     
   }
@@ -25,8 +25,8 @@ const insertIntoDatabase = async (lines, category_id) => {
     lines.map(async (element) => await processLine(element, category_id))
   );
   const uniqueArraysToInsert = arraysToInsert.filter(Boolean).filter(
-    (item, index, array) =>
-      index === array.findIndex((i) => i.domain === item.domain)
+    (item:CategoryDomain, index, array:CategoryDomain[]) =>
+      index === array.findIndex((i:CategoryDomain) => i.domain === item.domain)
   );
   await CategoryDomain.create(uniqueArraysToInsert);
 };

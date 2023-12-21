@@ -117,5 +117,6 @@ functions:
   - ${file(./src/handlers/admin/CategoryFindingDomain/serverless.yml)}
   - ${file(./src/handlers/admin/LibraryTest/serverless.yml)}
   - ${file(./src/handlers/admin/ParentsSetting/serverless.yml)}
+  - ${file(./src/handlers/admin/Question/serverless.yml)}
   - ${file(./src/handlers/admin/AI/serverless.yml)}
   - ${file(./src/handlers/admin/templates/serverless.yml)}

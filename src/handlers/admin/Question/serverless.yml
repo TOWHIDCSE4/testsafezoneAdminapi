@@ -1,0 +1,67 @@
+getListQuestion:
+  handler: admin/Question/index.getListQuestion
+  events:
+    - http:
+        path: /v1/core/admin/list-all-question
+        method: GET
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
+
+createQuestion:
+  handler: admin/Question/index.createQuestion
+  events:
+    - http:
+        path: /v1/core/admin/create-question
+        method: POST
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
+
+updateQuestion:
+  handler: admin/Question/index.updateQuestion
+  events:
+    - http:
+        path: /v1/core/admin/update-question
+        method: POST
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
+
+deleteQuestion:
+  handler: admin/Question/index.deleteQuestion
+  events:
+    - http:
+        path: /v1/core/admin/delete-question
+        method: POST
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
