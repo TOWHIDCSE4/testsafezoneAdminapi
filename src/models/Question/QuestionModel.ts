@@ -1,4 +1,4 @@
-import mongoose, { Schema, Document } from 'mongoose';
+import mongoose, { Schema, Document, ObjectId } from 'mongoose';
 
 export interface Question extends Document {
   answers: Answers[];
@@ -8,6 +8,7 @@ export interface Question extends Document {
   name: string;
   question_level: number;
   question_type: number;
+  subject_id:ObjectId;
   video: string;
 }
 
@@ -57,6 +58,11 @@ const QuestionSchema = new Schema(
         index: true
     }
     ,
+    subject_id: {
+      type: Schema.Types.ObjectId,
+      required: true,
+      index: true
+  },
     video: {
       type: String,
       trim: true

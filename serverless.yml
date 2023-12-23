@@ -51,7 +51,7 @@ provider:
     AWS_COGNITO_REGION: ap-southeast-1
     ZVELO_CLOUD_USERNAME: ${param:ZVELO_CLOUD_USERNAME, ''}
     ZVELO_CLOUD_PASSWORD: ${param:ZVELO_CLOUD_PASSWORD, ''}
-    MONGODB_URI: ${param:MONGODB_URI, 'mongodb+srv://safezone-php:2023safezonephp@safezoneapi-dev.qxco0.mongodb.net/'}
+    MONGODB_URI: ${param:MONGODB_URI, 'mongodb://ispeakDevBE:IspeakDev66BE2023@45.77.46.116:27017/?authSource=admin'}
     AWS_GATEWAY_API_URL: !Sub 'https://${ApiGatewayRestApi}.execute-api.${aws:region}.amazonaws.com/${sls:stage}'
     APPOTA_PARTNER_CODE: ${param:APPOTA_PARTNER_CODE, 'APPOTAPAY'}
     APPOTA_API_KEY: ${param:APPOTA_API_KEY, 'FJcmF8uj2ISveL5FvvNk4pnp8xrhINz8'}
@@ -118,5 +118,6 @@ functions:
   - ${file(./src/handlers/admin/LibraryTest/serverless.yml)}
   - ${file(./src/handlers/admin/ParentsSetting/serverless.yml)}
   - ${file(./src/handlers/admin/Question/serverless.yml)}
+  - ${file(./src/handlers/admin/SubjectSet/serverless.yml)}
   - ${file(./src/handlers/admin/AI/serverless.yml)}
   - ${file(./src/handlers/admin/templates/serverless.yml)}

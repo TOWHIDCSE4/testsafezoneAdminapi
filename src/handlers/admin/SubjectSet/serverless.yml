@@ -1,0 +1,33 @@
+getQuestionForStudent:
+  handler: admin/SubjectSet/index.getQuestionForStudent
+  events:
+    - http:
+        path: /v1/core/admin/get-question-for-student
+        method: GET
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
+
+saveStudentQuestion:
+  handler: admin/SubjectSet/index.saveStudentQuestion
+  events:
+    - http:
+        path: /v1/core/admin/save-student-question
+        method: POST
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key

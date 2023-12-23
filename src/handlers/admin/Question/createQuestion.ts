@@ -11,6 +11,7 @@ export const createQuestion = validateService(async (event) => {
     name,
     question_level,
     question_type,
+    subject_id,
     video
   } = JSON.parse(event.body);
 
@@ -33,6 +34,7 @@ export const createQuestion = validateService(async (event) => {
         name: name,
         question_level: question_level,
         question_type: question_type,
+        subject_id: subject_id,
         video: video
     });
 
