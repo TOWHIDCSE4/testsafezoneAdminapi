@@ -65,3 +65,21 @@ deleteQuestion:
             - X-Amz-Security-Token
             - X-Amz-User-Agent
             - api_key
+
+
+generateQuestion:
+  handler: admin/Question/index.generateQuestion
+  events:
+    - http:
+        path: /v1/core/admin/generate-question
+        method: POST
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
