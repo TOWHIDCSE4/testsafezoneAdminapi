@@ -15,6 +15,24 @@ getListQuestion:
             - X-Amz-User-Agent
             - api_key
 
+
+getListLibraryQuestion:
+  handler: admin/Question/index.getListLibraryQuestion
+  events:
+    - http:
+        path: /v1/core/admin/list-all-library-question
+        method: GET
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
+
 createQuestion:
   handler: admin/Question/index.createQuestion
   events:
@@ -71,6 +89,24 @@ deleteQuestion:
   events:
     - http:
         path: /v1/core/admin/delete-question
+        method: POST
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - api_key
+
+
+deleteLibraryQuestion:
+  handler: admin/Question/index.deleteLibraryQuestion
+  events:
+    - http:
+        path: /v1/core/admin/delete-library-question
         method: POST
         cors:
           origin: '*'
