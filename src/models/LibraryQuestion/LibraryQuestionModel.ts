@@ -13,6 +13,7 @@ export interface LibraryQuestion extends Document {
   params:string;
   subject_id:ObjectId;
   video: string;
+  topics: number;
   correct_answer: string[];
   incorrect_answer: string[];
 }
@@ -64,7 +65,12 @@ const LibraryQuestionSchema = new Schema(
         type: Number,
         required: true,
         index: true
-    }
+    },
+    topics: {
+      type: Number,
+      required: true,
+      index: true
+  }
     ,
     subject_id: {
       type: Schema.Types.ObjectId,
