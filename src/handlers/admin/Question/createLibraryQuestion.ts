@@ -57,7 +57,8 @@ export const createLibraryQuestion = validateService(async (event) => {
     category,
     age,
     subject, 
-    topics
+    topics,
+    section
   } = JSON.parse(event.body);
 
   try {
@@ -94,7 +95,8 @@ export const createLibraryQuestion = validateService(async (event) => {
             video: '',
             correct_answer: correct_ans,
             incorrect_answer: incorrect_ans,
-            topics: topics
+            topics: topics,
+            section: section
           }
         )
 

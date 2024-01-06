@@ -14,6 +14,7 @@ export interface LibraryQuestion extends Document {
   subject_id:ObjectId;
   video: string;
   topics: number;
+  section: number;
   correct_answer: string[];
   incorrect_answer: string[];
 }
@@ -70,7 +71,12 @@ const LibraryQuestionSchema = new Schema(
       type: Number,
       required: true,
       index: true
-  }
+  },
+  section: {
+    type: Number,
+    required: true,
+    index: true
+}
     ,
     subject_id: {
       type: Schema.Types.ObjectId,
