@@ -2,17 +2,56 @@ import { error, success, init, validateService } from '@/modules/core';
 import { CategoryDomain } from '@/models/CategoryDomain';
 import axios from 'axios';
 
-const validateUrl = async (url:string)=>{
-  try{
+const validateUrl = async (url) => {
+  try {
     const response = await axios.get(url);
-    if(!(response.status >= 200 && response.status < 300)){
-      return false;
-    }
-  }catch(e){
-    return false
+    return response.status >= 200 && response.status < 300;
+  } catch (e) {
+    return false;
   }
- 
-  return true;
+};
+
+const validateDomainRecursively = async (parts:string[], mainDomain:string, prevIndex:number) =>{
+  if (prevIndex < 0) {
+    return null;
+  }
+  mainDomain = parts[prevIndex-1].concat('.',mainDomain);
+  const url = 'http://' + mainDomain;
+  const isValid = await validateUrl(url);
+  if(isValid){
+    return mainDomain;
+  }else{
+    return validateDomainRecursively(parts,mainDomain,prevIndex-1);
+  }
+
+};
+
+const getCategoryDomain = async (hostUrl:string)=>{
+  let url = hostUrl;
+  if(!hostUrl.startsWith('http://') || !hostUrl.startsWith('https://')){
+      url= 'http://'+hostUrl;
+    }
+
+  if(!validateUrl(url)){
+    return null;
+  }
+
+  if(url.startsWith('http://')){
+    url = url.replace('http://', '');
+  }else if(url.startsWith('https://')){
+    url = url.replace('https://','');
+  }
+
+  let parts = url.split('.');
+
+  if(parts.length<2){
+    return null;
+  }
+  let prevIndex = parts.length -1;
+  let mainDomain = parts[prevIndex];
+  const domain = await validateDomainRecursively(parts,mainDomain,prevIndex);
+  return{domain,hostUrl};
+
 };
 
 export const createCategoryDomain = validateService(async (event) => {
@@ -23,32 +62,13 @@ export const createCategoryDomain = validateService(async (event) => {
   } = JSON.parse(event.body);
 
   try {
-    let url = host; 
-    if(!host.startsWith('http://') || !host.startsWith('https://')){
-      url= 'http://'+host;
-    }
-    if(!validateUrl(url)){
+    const hostDomain = await getCategoryDomain(host);
+    if(!hostDomain || !hostDomain.domain){
       return error('Máy chủ không thể truy cập được');
     }
-    if(url.startsWith('http://')){
-      url = url.replace('http://', '');
-    }else if(url.startsWith('https://')){
-      url = url.replace('https://','');
-    }
-    let parts = url.split('.');
-    var domain = '';
-    if(parts.length>1){
-      let mainDomain = parts[parts.length-2]+"." + parts[parts.length-1];
-      if(!validateUrl(mainDomain) && parts.length>2){
-        mainDomain = parts[parts.length-3]+"." + mainDomain;
-        if(!validateUrl(mainDomain) && parts.length>3){
-          mainDomain = parts[parts.length-4]+"." + mainDomain;
-        }
-      }
-      domain = mainDomain;
-    }
+   
     const categoryExists = await CategoryDomain.findOne({
-      $or: [{ host: host }],
+      $or: [{ host: hostDomain.hostUrl }],
     });
 
 
@@ -58,7 +78,7 @@ export const createCategoryDomain = validateService(async (event) => {
 
 
     const domainExists = await CategoryDomain.findOne({
-      $or: [{ domain: domain }],
+      $or: [{ domain: hostDomain.domain }],
     });
 
 
@@ -68,12 +88,9 @@ export const createCategoryDomain = validateService(async (event) => {
    
     const categoryDomain = await CategoryDomain.create({
       category_id: category_id,
-      host: host,
-      domain:domain
+      host: hostDomain.hostUrl,
+      domain:hostDomain.domain
     });
-
-
-   
 
     return success({
       code: '10000',

@@ -2,18 +2,46 @@ import { CategoryDomain } from '@/models/CategoryDomain/CategoryDomain';
 import { error, success, init, validateService } from '@/modules/core';
 import axios from 'axios';
 
+const validateUrl = async (url) => {
+  try {
+    const response = await axios.get(url);
+    return response.status >= 200 && response.status < 300;
+  } catch (e) {
+    return false;
+  }
+};
+
+const validateDomainRecursively = async (parts:string[], mainDomain:string, prevIndex:number) =>{
+  if (prevIndex < 1) {
+    return null;
+  }
+  mainDomain = parts[prevIndex-1].concat('.',mainDomain);
+  const url = 'http://' + mainDomain;
+  const isValid = await validateUrl(url);
+  if(isValid){
+    return mainDomain;
+  }else{
+    return validateDomainRecursively(parts,mainDomain,prevIndex-1);
+  }
+
+};
+
 
 const processLine = async (line, category_id) => {
   if (line.startsWith("0")) {
     const splitArr = line.split(" ");
     const url = splitArr[1];
     const parts = url.split('.');
-    let mainDomain = parts[parts.length - 2] + "." + parts[parts.length - 1];
+    let prevIndex = parts.length -1;
+    const domain = await validateDomainRecursively(parts,parts[prevIndex],prevIndex);
+    if(!domain){
+      return null;
+    }
     const domainExists = await CategoryDomain.findOne({
-      $or: [{ domain: mainDomain }],
+      $or: [{ domain: domain }],
     });
     if(!domainExists){
-      return { host: url, domain: mainDomain, category_id: category_id};
+      return { host: url, domain: domain, category_id: category_id};
     }
     
   }
